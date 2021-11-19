@@ -1,0 +1,47 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="{x:Type DataGrid}"
+           x:Key="ModernDataGrid">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DataGrid}">
+                    <Border CornerRadius="10"
+                            BorderThickness="1"
+                            BorderBrush="Black">
+                        <Grid>
+                            <DataGrid x:Name="DTG_Locations"      
+                                      ItemsSource="{Binding TLO_List}"
+                                      AutoGenerateColumns="false"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      Margin="10"
+                                      Width="670"
+                                      Height="430"
+                                      Background="Transparent"
+                                      RowBackground="Transparent"
+                                      BorderThickness="1"
+                                      BorderBrush="Transparent"
+                                      VerticalScrollBarVisibility="Hidden">
+
+                                <DataGrid.ColumnHeaderStyle>
+                                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                        <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                    </Style>
+                                </DataGrid.ColumnHeaderStyle>
+
+                                <DataGrid.RowHeaderStyle>
+                                    <Style TargetType="{x:Type DataGridRowHeader}">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                    </Style>
+                                </DataGrid.RowHeaderStyle>
+                            </DataGrid>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter> 
+    </Style>
+</ResourceDictionary>

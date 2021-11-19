@@ -1,0 +1,84 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>MTG_Inventory</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Images\CardImages\**" />
+    <EmbeddedResource Remove="Images\CardImages\**" />
+    <None Remove="Images\CardImages\**" />
+    <Page Remove="Images\CardImages\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Images\1200px-Google_Maps_icon_%282020%29.svg.png" />
+    <None Remove="Images\1200px-Google_Maps_Logo.svg.png" />
+    <None Remove="Images\14-145940_the-gathering-magic-points-mana-playing-card-collectible.png" />
+    <None Remove="Images\14-146289_the-gathering-pro-tour-magic-points-mana-ravnica.png" />
+    <None Remove="Images\218-2186106_big-image-mtg-blue-mana-symbol-clipart.png" />
+    <None Remove="Images\381-3817545_medium-image-mtg-black-mana-symbol-clipart.png" />
+    <None Remove="Images\562-5623946_transparent-playing-card-clipart-magic-the-gathering-green.png" />
+    <None Remove="Images\C.png" />
+    <None Remove="Images\google-maps-icon-transparent-9.jpg" />
+    <None Remove="Images\Modern_Color_Wheel.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\1200px-Google_Maps_icon_(2020).svg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\1200px-Google_Maps_Logo.svg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\14-145940_the-gathering-magic-points-mana-playing-card-collectible.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\14-146289_the-gathering-pro-tour-magic-points-mana-ravnica.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\218-2186106_big-image-mtg-blue-mana-symbol-clipart.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\381-3817545_medium-image-mtg-black-mana-symbol-clipart.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\562-5623946_transparent-playing-card-clipart-magic-the-gathering-green.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\C.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\google-maps-icon-transparent-9.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Modern_Color_Wheel.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Data\AllCards.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\AllPrintingsFormatted.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\CardTypes.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="JSONFiles\SetList.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
