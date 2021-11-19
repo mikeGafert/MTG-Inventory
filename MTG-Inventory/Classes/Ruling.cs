@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace MTG_Inventory.Classes
 {
-    internal class Translations
+    internal class Ruling
     {
+        public string date { get; set; }
+        public string text { get; set; }
     }
 }

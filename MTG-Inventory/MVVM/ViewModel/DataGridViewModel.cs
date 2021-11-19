@@ -14,6 +14,8 @@ namespace MTG_Inventory.MVVM.ViewModel
         //private static readonly string dataFolderPath = Path.Combine(myDocumentsFolderPath, "My Google Location History"); // Pfad zum Programmordner
         private static readonly string dataFolderPath = @".\Data\AllPrintingsFormatted.json";
 
+        private static List<Card> cardList = new();
+
         private IEnumerable<Card> _card_List; // DataList the DataGrid is working with
         public IEnumerable<Card> Card_List
         {
@@ -37,6 +39,7 @@ namespace MTG_Inventory.MVVM.ViewModel
 
             // LoadSampleData();
             CardTypes = DeSerializer.ReadCardTypes();
+            cardList = GenerateAllData.Generate();
 
         }
 
@@ -71,9 +74,9 @@ namespace MTG_Inventory.MVVM.ViewModel
 
             _JsonData = DeSerializer.Process(dataFolderPath);
 
-            var query = _JsonData.Where(x => x.Name != null)
+            var query = _JsonData.Where(x => x.name != null)
                                  .Select(x => x)
-                                 .OrderBy(x => x.Name);
+                                 .OrderBy(x => x.name);
 
             Card_List = query.ToList();
 
@@ -108,7 +111,7 @@ namespace MTG_Inventory.MVVM.ViewModel
             }
             else
             {
-                var query = _JsonData.Where((x) => x.Name != null)
+                var query = _JsonData.Where((x) => x.name != null)
                                      .Select((x) => x);
 
                 Card_List = query.ToList();
@@ -133,9 +136,9 @@ namespace MTG_Inventory.MVVM.ViewModel
         {
             _JsonData = DeSerializer.Process(dataFolderPath);
 
-            var query = _JsonData.Where(x => x.Name != null)
+            var query = _JsonData.Where(x => x.name != null)
                                  .Select(x => x)
-                                 .OrderBy(x => x.Name);
+                                 .OrderBy(x => x.name);
 
             Card_List = query.ToList();
         }

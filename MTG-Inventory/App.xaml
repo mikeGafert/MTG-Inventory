@@ -23,6 +23,7 @@
             <DataTemplate DataType="{x:Type viewModel:DataGridViewModel}">
                 <view:DataGridView/>
             </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

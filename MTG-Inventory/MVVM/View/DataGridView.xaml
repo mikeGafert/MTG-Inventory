@@ -10,9 +10,7 @@
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance Type=viewModel:DataGridViewModel}"
              d:DesignHeight="750" d:DesignWidth="1200">
-    <UserControl.Resources>
-        <core:DateTimeToString x:Key="DateTimeToString"/>
-        <core:UnixTimeStamp x:Key="UnixTimeStamp"/>
+    <UserControl.Resources>        
         <viewModel:DataGridViewModel x:Key="DGVM"/>
     </UserControl.Resources>
 
@@ -28,10 +26,10 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Overview"
+            <TextBlock Text="Inventory"
                        Foreground="AliceBlue"
                        FontSize="28"
-                       HorizontalAlignment="Left"
+                       HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        Margin="0,0,0,10"
                        FontFamily="/Fonts/#ProductSans"/>
@@ -161,7 +159,8 @@
                            Margin="0,0,0,0"
                            FontFamily="/Fonts/#ProductSans"/>
 
-                <Grid>
+                <Grid VerticalAlignment="Center"
+                      Margin="0,5,5,5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>

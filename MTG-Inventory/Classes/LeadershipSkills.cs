@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace MTG_Inventory.Classes
 {
-    internal class CardCollection
+    internal class LeadershipSkills
     {
-        private List<Card> cards;
-
-        public List<Card> Cards { get => cards; set => cards = value; }
+        public bool brawl { get; set; }
+        public bool commander { get; set; }
+        public bool oathbreaker { get; set; }
     }
 }

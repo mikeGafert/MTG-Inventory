@@ -23,7 +23,6 @@ namespace MTG_Inventory.MVVM.View
         public DataGridView()
         {
             InitializeComponent();
-
                       
         }
     }

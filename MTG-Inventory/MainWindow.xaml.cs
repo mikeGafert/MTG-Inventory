@@ -37,7 +37,7 @@ namespace MTG_Inventory
     {
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();   
         
         }
     }

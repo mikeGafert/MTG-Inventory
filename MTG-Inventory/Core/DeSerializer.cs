@@ -14,8 +14,7 @@ namespace MTG_Inventory
         private static List<string> fileNames = new();
         private static Queue<string> folders = new();
         private static List<Card>? fullCardList = new();
-        private static List<Card>? tempCardList = new();
-        private static string jsonString = "";
+        private static List<Card>? tempCardList = new();     
 
 
         public static List<Card> Process(string selection)
@@ -76,8 +75,8 @@ namespace MTG_Inventory
         // Deserializer
         internal static void GetDataListFromJsonFile(string filePath)
         {
-            ReadJsonFile(filePath); // From JSON Raw Data to JSON String
-            DeSerializeJsonString(); // From JSON string to Object List 
+            string jsonString = ReadJsonFile(filePath); // From JSON Raw Data to JSON String
+            DeSerializeJsonString(jsonString); // From JSON string to Object List 
 
         }
 
@@ -86,11 +85,13 @@ namespace MTG_Inventory
         /// </summary>
         /// <param name="fp">Path of the File read</param>
         /// <returns>String with JSON RAW Data</returns>
-        private static void ReadJsonFile(string fp)
+        internal static string ReadJsonFile(string fp)
         {
-            jsonString = File.ReadAllText(fp);
+            string jsonString = File.ReadAllText(fp);
 
             jsonString = jsonString.Replace("\n", "");
+
+            return jsonString;
         }
 
         /// <summary>
@@ -98,7 +99,7 @@ namespace MTG_Inventory
         /// </summary>
         /// <param name="s">String with JSON RAW Data</param>
         /// <returns>Collection of TimeLineObjects</returns>
-        private static void DeSerializeJsonString()
+        private static void DeSerializeJsonString(string jsonString)
         {
             var settings = new JsonSerializerSettings
             {
@@ -142,7 +143,7 @@ namespace MTG_Inventory
 
         internal static List<string> ReadCardTypes()
         {
-            ReadJsonFile(@"D:\OneDrive - LG-Academy\repos\MTG-Inventory\MTG-Inventory\Data\CardTypes.json");
+            string jsonString = ReadJsonFile(@"D:\OneDrive - LG-Academy\repos\MTG-Inventory\MTG-Inventory\Data\CardTypes.json");
 
             var dict = JsonConvert.DeserializeObject<Dictionary<string, object>>(jsonString);
 
