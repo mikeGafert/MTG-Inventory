@@ -24,6 +24,10 @@
                 <view:DataGridView/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModel:DataViewModel}">
+                <view:DataGridView/>
+            </DataTemplate>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

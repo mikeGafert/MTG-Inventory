@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MTG_Inventory.MVVM.ViewModel
+namespace MTG_Inventory.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for SelectDataViewModel.xaml
+    /// Interaction logic for DataView.xaml
     /// </summary>
-    public partial class SelectDataViewModel : UserControl
+    public partial class DataView : UserControl
     {
-        public SelectDataViewModel()
+        public DataView()
         {
             InitializeComponent();
         }
