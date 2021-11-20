@@ -8,7 +8,7 @@ using MTG_Inventory.MVVM.Model;
 
 namespace MTG_Inventory.MVVM.ViewModel
 {
-    class DataGridViewModel : ObservableObject
+    class InventoryViewModel : ObservableObject
     {
         //private static readonly string myDocumentsFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         //private static readonly string dataFolderPath = Path.Combine(myDocumentsFolderPath, "My Google Location History"); // Pfad zum Programmordner
@@ -32,14 +32,14 @@ namespace MTG_Inventory.MVVM.ViewModel
         public List<string> CardTypes { get => cardTypes; set => cardTypes = value; }
 
         // Constructor
-        public DataGridViewModel()
+        public InventoryViewModel()
         {
             //if (!Directory.Exists(dataFolderPath))
             //    Directory.CreateDirectory(dataFolderPath); // Falls er nicht existiert, erstellen
 
             // LoadSampleData();
             CardTypes = DeSerializer.ReadCardTypes();
-            cardList = DataGridModel.Generate();
+            cardList = InventoryModel.Generate();
 
         }
 

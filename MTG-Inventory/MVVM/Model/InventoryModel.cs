@@ -14,7 +14,7 @@ using System.Windows.Input;
 
 namespace MTG_Inventory.MVVM.Model
 {
-    internal class DataGridModel
+    internal class InventoryModel
     {
         private static readonly string roamingPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData); // Systempfad zum Roaming Ordner
         private static readonly string roamingFolderPath = Path.Combine(roamingPath, "MTG-Inventory"); // Pfad zum Programmordner

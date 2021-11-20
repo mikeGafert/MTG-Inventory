@@ -8,10 +8,10 @@
              xmlns:core="clr-namespace:MTG_Inventory.Core"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              mc:Ignorable="d" 
-             d:DataContext="{d:DesignInstance Type=viewModel:DataGridViewModel}"
+             d:DataContext="{d:DesignInstance Type=viewModel:InventoryViewModel}"
              d:DesignHeight="750" d:DesignWidth="1200">
-    <UserControl.Resources>        
-        <viewModel:DataGridViewModel x:Key="DGVM"/>
+    <UserControl.Resources>
+        <viewModel:InventoryViewModel x:Key="IVVM"/>
     </UserControl.Resources>
 
     <StackPanel>

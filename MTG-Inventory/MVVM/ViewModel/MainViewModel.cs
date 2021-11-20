@@ -13,7 +13,7 @@ namespace MTG_Inventory.MVVM.ViewModel
         public RelayCommand QuitCommand { get; set; }
 
         public HomeViewModel HomeVM { get; set; }
-        public DataGridViewModel DataGridVM { get; set; }
+        public InventoryViewModel DataGridVM { get; set; }
 
         private object _currentView;
 
@@ -30,7 +30,7 @@ namespace MTG_Inventory.MVVM.ViewModel
         public MainViewModel()
         {
             HomeVM = new HomeViewModel();
-            DataGridVM = new DataGridViewModel();
+            DataGridVM = new InventoryViewModel();
 
             CurrentView = HomeVM;
 

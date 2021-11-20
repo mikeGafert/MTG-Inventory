@@ -20,7 +20,7 @@
                 <view:HomeView/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type viewModel:DataGridViewModel}">
+            <DataTemplate DataType="{x:Type viewModel:InventoryViewModel}">
                 <view:DataGridView/>
             </DataTemplate>
 
