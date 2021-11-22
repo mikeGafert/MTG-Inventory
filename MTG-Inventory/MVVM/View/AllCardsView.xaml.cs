@@ -23,6 +23,8 @@ namespace MTG_Inventory.MVVM.View
         public AllCardsView()
         {
             InitializeComponent();
+
+            //DataContext = ViewModel.MainViewModel.allCardsVM;
         }
     }
 }

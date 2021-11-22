@@ -30,19 +30,24 @@ namespace MTG_Inventory.MVVM.ViewModel
             }
         }
 
-        public static HomeViewModel homeVM = new HomeViewModel();
-        public static DataViewModel dataVM = new DataViewModel();
-        public static InventoryViewModel inventoryVM = new InventoryViewModel();
-        public static AllCardsViewModel allCardsVM = new AllCardsViewModel();
+        public static HomeViewModel homeVM;
+        public static DataViewModel dataVM;
+        public static InventoryViewModel inventoryVM;
+        public static AllCardsViewModel allCardsVM;
 
         public MainViewModel()
-        {   
+        {
+            homeVM ??= new HomeViewModel();
+            dataVM ??= new DataViewModel();
+            inventoryVM ??= new InventoryViewModel();
+            allCardsVM ??= new AllCardsViewModel();
+
             CurrentView = homeVM;
 
-            HomeViewCommand = new RelayCommand(o => 
+            HomeViewCommand = new RelayCommand(o =>
             {
                 CurrentView = homeVM;
-            });           
+            });
 
             InventoryViewCommand = new RelayCommand(o =>
             {
@@ -62,8 +67,8 @@ namespace MTG_Inventory.MVVM.ViewModel
 
             QuitCommand = new RelayCommand(o =>
             {
-               Application.Current.Shutdown();
+                Application.Current.Shutdown();
             });
-        }        
+        }
     }
 }

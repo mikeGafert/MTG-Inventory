@@ -5,11 +5,12 @@ using System.Linq;
 using System.Windows;
 using MTG_Inventory.Classes;
 using MTG_Inventory.MVVM.Model;
+using MTG_Inventory.MVVM.View;
 
 namespace MTG_Inventory.MVVM.ViewModel
 {
     class AllCardsViewModel : ObservableObject
-    {        
+    {
         private IEnumerable<Card> _card_List; // DataList the DataGrid is working with
         public IEnumerable<Card> Card_List
         {
@@ -26,15 +27,12 @@ namespace MTG_Inventory.MVVM.ViewModel
 
         // Constructor
         public AllCardsViewModel()
-        {
-            //if (!Directory.Exists(dataFolderPath))
-            //    Directory.CreateDirectory(dataFolderPath); // Falls er nicht existiert, erstellen
+        {   
+            CardTypes = DataModel.cardTypes;
 
             // LoadSampleData();
-            CardTypes = DataModel.cardTypes;   
-            
             PerformLoad();
-        }               
+        }
 
         private void PerformLoad()
         {
@@ -51,7 +49,7 @@ namespace MTG_Inventory.MVVM.ViewModel
         private void PerformSelect(object commandParameter)
         {
             // Get all Filter Values
-           
+
 
             var query = DataModel.cardList.Where(x => x.setCode == "LEA")
                                           .Select(x => x)
@@ -63,26 +61,26 @@ namespace MTG_Inventory.MVVM.ViewModel
         public RelayCommand BTN_Reset => new RelayCommand(PerformReset);
         private void PerformReset(object commandParameter)
         {
-           
-                var query = DataModel.cardList.Where((x) => x.name != null)
-                                     .Select((x) => x);
 
-                Card_List = query.ToList();
-            
-        }      
-        
+            var query = DataModel.cardList.Where((x) => x.name != null)
+                                 .Select((x) => x);
+
+            Card_List = query.ToList();
+
+        }
+
         
 
         // All Filter options
         // Color Filter
         List<string> Color_List { get; set; }
 
-        private bool _color_White = true;
+        private bool _color_White = false;
         public bool Color_White
         {
             get { return _color_White; }
-            set 
-            { 
+            set
+            {
                 _color_White = value;
 
                 if (!value)
@@ -98,7 +96,7 @@ namespace MTG_Inventory.MVVM.ViewModel
                     Color_List.Add("W");
                 }
 
-                OnPropertyChanged();                
+                OnPropertyChanged();
             }
         }
 

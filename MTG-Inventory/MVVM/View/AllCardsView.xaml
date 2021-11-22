@@ -8,9 +8,13 @@
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type=viewModel:AllCardsViewModel}"
              d:DesignHeight="750" d:DesignWidth="1200">
-    <UserControl.Resources>
-        <viewModel:AllCardsViewModel x:Key="ACVM"/>
-    </UserControl.Resources>
+    <!--<UserControl.Resources>
+        <viewModel:AllCardsViewModel x:Key="AKVM"/>
+    </UserControl.Resources>-->
+    <UserControl.DataContext>
+        <viewModel:AllCardsViewModel/>
+    </UserControl.DataContext>
+
 
     <DockPanel>
 
@@ -70,7 +74,7 @@
                               Grid.Row="0"
                               Grid.Column="0"
                               Style="{StaticResource CardTypesTheme}"
-                              IsChecked="{Binding ElementName=AllCardsViewModel, Path=Color_White, Mode=TwoWay}"/>
+                              IsChecked="{Binding Color_White}"/>
                     <Image Source="/Images/14-146289_the-gathering-pro-tour-magic-points-mana-ravnica.png"
                            Grid.Row="0"
                            Grid.Column="1"
