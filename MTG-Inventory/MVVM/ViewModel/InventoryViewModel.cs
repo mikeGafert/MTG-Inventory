@@ -14,7 +14,7 @@ namespace MTG_Inventory.MVVM.ViewModel
         //private static readonly string dataFolderPath = Path.Combine(myDocumentsFolderPath, "My Google Location History"); // Pfad zum Programmordner
         private static readonly string dataFolderPath = @".\Data\AllPrintingsFormatted.json";
 
-        private static List<Card> cardList = new();
+        private static List<Card> CardList = new();
 
         private IEnumerable<Card> _card_List; // DataList the DataGrid is working with
         public IEnumerable<Card> Card_List
@@ -27,9 +27,8 @@ namespace MTG_Inventory.MVVM.ViewModel
             }
         }
 
-        // Card Type List
-        private List<string> cardTypes;
-        public List<string> CardTypes { get => cardTypes; set => cardTypes = value; }
+        // Card Type List        
+        public List<string> CardTypes { get; set; }
 
         // Constructor
         public InventoryViewModel()
@@ -38,8 +37,8 @@ namespace MTG_Inventory.MVVM.ViewModel
             //    Directory.CreateDirectory(dataFolderPath); // Falls er nicht existiert, erstellen
 
             // LoadSampleData();
-            CardTypes = DeSerializer.ReadCardTypes();
-            cardList = InventoryModel.Generate();
+            CardTypes = DataModel.cardTypes;
+            CardList = DataModel.cardList;
 
         }
 
@@ -129,18 +128,6 @@ namespace MTG_Inventory.MVVM.ViewModel
                 _buttonLoadText = value;
                 OnPropertyChanged();
             }
-        }  
-
-        
-        private void LoadSampleData()
-        {
-            _JsonData = DeSerializer.Process(dataFolderPath);
-
-            var query = _JsonData.Where(x => x.name != null)
-                                 .Select(x => x)
-                                 .OrderBy(x => x.name);
-
-            Card_List = query.ToList();
-        }
+        } 
     }
 }

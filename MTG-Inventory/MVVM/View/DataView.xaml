@@ -15,6 +15,291 @@
     </UserControl.Resources>
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!--Column 1-->
+        <StackPanel Grid.Column="0">
+
+            <!--AllPrintings.json-->
+            <StackPanel Orientation="Horizontal">
+                <Border Width="450"
+                        Height="100"
+                        Background="Yellow"
+                        Margin="5">
+                    <DockPanel>
+                        <Image Source="/Images/css.png"                         
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               Height="80"
+                               Margin="5"/>
+                        
+                        <StackPanel Margin="5">
+                            <TextBlock Text="File Infos"/>
+                            <TextBlock Text="{Binding DataFiles[0].Name}"/>
+                            <TextBlock Text="{Binding DataFiles[0].DateOfFileCreation}"/>
+                            <TextBlock Text="{Binding DataFiles[0].FileCreationTime}"/>
+                            <TextBlock Text="{Binding DataFiles[0].FileSize}"/>
+                        </StackPanel>
+                        
+                        <StackPanel Margin="5">
+                            <ProgressBar Height="10"/>
+                            <Border HorizontalAlignment="Stretch"
+                                    Background="Aqua"
+                                    Margin="0,2.5">
+                                <TextBox Text="{Binding DataFiles[0].LocalPath}"
+                                         HorizontalAlignment="Center"
+                                         Background="Transparent"
+                                         FontSize="10"/>
+                            </Border>
+                            <ProgressBar Height="10"/>
+                            <Border HorizontalAlignment="Stretch"
+                                    Background="Aqua"
+                                    Margin="0,2.5">
+                                <TextBox Text="File Version"
+                                         HorizontalAlignment="Center"
+                                         Background="Transparent"
+                                         FontSize="10"/>
+                            </Border>
+                            <ProgressBar Height="10"
+                                         Visibility="Collapsed"/>
+                            <Border HorizontalAlignment="Stretch"
+                                    Background="Aqua"
+                                    Margin="0,2.5"
+                                    Visibility="Collapsed">
+                                <TextBox Text="File ..."
+                                         HorizontalAlignment="Center"
+                                         Background="Transparent"
+                                         FontSize="10"/>
+                            </Border>
+                        </StackPanel>
+                    </DockPanel>
+                </Border>
+                <StackPanel Width="135">
+                    <Button Height="25"
+                            Width="100"
+                            Margin="5"/>
+                    <Button Height="25"
+                            Width="100"
+                            Margin="5"/>
+                    <Button Height="25"
+                            Width="100"
+                            Margin="5"/>
+                </StackPanel>
+            </StackPanel>
+
+            <!--CardTypes.json-->
+            <StackPanel Orientation="Horizontal">
+                <Border Width="450"
+                        Height="100"
+                        Background="Yellow"
+                        Margin="5">
+                    <DockPanel>
+                        <Image Source="/Images/css.png"                         
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               Height="80"
+                               Margin="5"/>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="File Infos"/>
+                            <TextBlock Text="{Binding DataFiles[1].Name}"/>
+                            <TextBlock Text="{Binding DataFiles[1].DateOfFileCreation}"/>
+                            <TextBlock Text="{Binding DataFiles[1].FileCreationTime}"/>
+                            <TextBlock Text="{Binding DataFiles[1].FileSize}"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <ProgressBar Height="10"/>
+                            <Border HorizontalAlignment="Stretch"
+                                    Background="Aqua"
+                                    Margin="0,2.5">
+                                <TextBox Text="{Binding DataFiles[1].LocalPath}"
+                                         HorizontalAlignment="Center"
+                                         Background="Transparent"
+                                         FontSize="10"/>
+                            </Border>
+                            <ProgressBar Height="10"/>
+                            <Border HorizontalAlignment="Stretch"
+                                    Background="Aqua"
+                                    Margin="0,2.5">
+                                <TextBox Text="File Version"
+                                         HorizontalAlignment="Center"
+                                         Background="Transparent"
+                                         FontSize="10"/>
+                            </Border>
+                            <ProgressBar Height="10"
+                                         Visibility="Collapsed"/>
+                            <Border HorizontalAlignment="Stretch"
+                                    Background="Aqua"
+                                    Margin="0,2.5"
+                                    Visibility="Collapsed">
+                                <TextBox Text="File ..."
+                                         HorizontalAlignment="Center"
+                                         Background="Transparent"
+                                         FontSize="10"/>
+                            </Border>
+                        </StackPanel>
+                    </DockPanel>
+                </Border>
+                <StackPanel Width="135">
+                    <Button Height="25"
+                            Width="100"
+                            Margin="5"/>
+                    <Button Height="25"
+                            Width="100"
+                            Margin="5"/>
+                    <Button Height="25"
+                            Width="100"
+                            Margin="5"/>
+                </StackPanel>
+            </StackPanel>
+
+            <!--Card Images-->
+            <StackPanel Orientation="Horizontal">
+                <Border Width="450"
+                        Height="100"
+                        Background="Yellow"
+                        Margin="5">
+                    <DockPanel>
+                        <Image Source="/Images/jpg.png"                         
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               Height="80"
+                               Margin="5"/>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="Card Images"/>
+                            <!--<TextBlock Text="File Name"/>
+                            <TextBlock Text="File Date"/>
+                            <TextBlock Text="File Size"/>-->
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <ProgressBar Height="10"/>
+                            <Border HorizontalAlignment="Stretch"
+                                    Background="Aqua"
+                                    Margin="0,2.5">
+                                <TextBox Text="{Binding ImageFolderPath}"
+                                         HorizontalAlignment="Center"
+                                         Background="Transparent"
+                                         FontSize="10"/>
+                            </Border>
+                            <ProgressBar Height="10"
+                                         x:Name="PGB_TotalImages"/>
+                            <Border HorizontalAlignment="Stretch"
+                                    Background="Aqua"
+                                    Margin="0,2.5">
+                                <TextBox Text="{Binding TotalImages}"
+                                         HorizontalAlignment="Center"
+                                         Background="Transparent"
+                                         FontSize="10"/>
+                            </Border>
+                            <!--<ProgressBar Height="10"/>
+                            <Border HorizontalAlignment="Stretch"
+                                    Background="Aqua"
+                                    Margin="0,2.5">
+                                <TextBox Text="File ..."
+                                         HorizontalAlignment="Center"
+                                         Background="Transparent"
+                                         FontSize="10"/>
+                            </Border>-->
+                        </StackPanel>
+                    </DockPanel>
+                </Border>
+                <StackPanel Width="135">
+                    <Button Height="25"
+                            Width="100"
+                            Margin="5"
+                            Visibility="Hidden"/>
+                    <Button x:Name="BTN_DownloadImages" 
+                            Height="25"
+                            Width="100"
+                            Margin="5"
+                            Content="{Binding DownloadImagesButtonText}"
+                            Command="{Binding BTN_DownloadImages}"/>
+                    <Button Height="25"
+                            Width="100"
+                            Margin="5"
+                            Visibility="Collapsed"/>
+                </StackPanel>
+            </StackPanel>
+
+            <!--Inventory Database-->
+            <StackPanel Orientation="Horizontal">
+                <Border Width="450"
+                        Height="100"
+                        Background="Yellow"
+                        Margin="5">
+                    <DockPanel>
+                        <Image Source="/Images/word.png"                         
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               Height="80"
+                               Margin="5"/>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="File Infos"/>
+                            <TextBlock Text="File Name"/>
+                            <TextBlock Text="File Date"/>
+                            <TextBlock Text="File Size"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <ProgressBar Height="10"/>
+                            <Border HorizontalAlignment="Stretch"
+                                    Background="Aqua"
+                                    Margin="0,2.5">
+                                <TextBox Text="File Path"
+                                         HorizontalAlignment="Center"
+                                         Background="Transparent"
+                                         FontSize="10"/>
+                            </Border>
+                            <ProgressBar Height="10"/>
+                            <Border HorizontalAlignment="Stretch"
+                                    Background="Aqua"
+                                    Margin="0,2.5">
+                                <TextBox Text="File Version"
+                                         HorizontalAlignment="Center"
+                                         Background="Transparent"
+                                         FontSize="10"/>
+                            </Border>
+                            <ProgressBar Height="10"/>
+                            <Border HorizontalAlignment="Stretch"
+                                    Background="Aqua"
+                                    Margin="0,2.5">
+                                <TextBox Text="File ..."
+                                         HorizontalAlignment="Center"
+                                         Background="Transparent"
+                                         FontSize="10"/>
+                            </Border>
+                        </StackPanel>
+                    </DockPanel>
+                </Border>
+                <StackPanel Width="135">
+                    <Button Height="25"
+                            Width="100"
+                            Margin="5"/>
+                    <Button Height="25"
+                            Width="100"
+                            Margin="5"/>
+                    <Button Height="25"
+                            Width="100"
+                            Margin="5"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+
+        <!--Column 2-->
+        <StackPanel Grid.Column="1">
+
+        </StackPanel>
+        <Rectangle HorizontalAlignment="Left" Height="100" Margin="-9633,111,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </UserControl>

@@ -21,11 +21,11 @@
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type viewModel:InventoryViewModel}">
-                <view:DataGridView/>
+                <view:InventoryView/>
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type viewModel:DataViewModel}">
-                <view:DataGridView/>
+                <view:DataView/>
             </DataTemplate>
             
         </ResourceDictionary>

@@ -56,13 +56,14 @@
                              Foreground="White"
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding DataGridViewCommand}"/>
+                             Command="{Binding InventoryViewCommand}"/>
 
-                <RadioButton Content="Add Cards"
+                <RadioButton Content="Data"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding DataViewCommand}"/>
             </StackPanel>            
             <StackPanel VerticalAlignment="Bottom">
                 <RadioButton Content="Settings"

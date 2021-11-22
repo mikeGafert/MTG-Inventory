@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace MTG_Inventory.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for DataGridView.xaml
+    /// Interaction logic for InventoryView.xaml
     /// </summary>
-    public partial class DataGridView : UserControl
+    public partial class InventoryView : UserControl
     {
-        public DataGridView()
+        public InventoryView()
         {
             InitializeComponent();
                       

@@ -141,20 +141,6 @@ namespace MTG_Inventory
             // }
         }
 
-        internal static List<string> ReadCardTypes()
-        {
-            string jsonString = ReadJsonFile(@"D:\OneDrive - LG-Academy\repos\MTG-Inventory\MTG-Inventory\Data\CardTypes.json");
-
-            var dict = JsonConvert.DeserializeObject<Dictionary<string, object>>(jsonString);
-
-            List<string> tempList = new();
-
-            foreach (var item in dict.Keys)
-            {
-                tempList.Add(item.ToString());
-            }
-
-            return tempList;
-        }
+        
     }
 }

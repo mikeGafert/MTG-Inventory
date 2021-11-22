@@ -24,8 +24,13 @@
     <None Remove="Images\381-3817545_medium-image-mtg-black-mana-symbol-clipart.png" />
     <None Remove="Images\562-5623946_transparent-playing-card-clipart-magic-the-gathering-green.png" />
     <None Remove="Images\C.png" />
+    <None Remove="Images\css.png" />
     <None Remove="Images\google-maps-icon-transparent-9.jpg" />
+    <None Remove="Images\jpg.png" />
     <None Remove="Images\Modern_Color_Wheel.png" />
+    <None Remove="Images\text.png" />
+    <None Remove="Images\text.svg" />
+    <None Remove="Images\word.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -53,11 +58,23 @@
     <Resource Include="Images\C.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\css.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\google-maps-icon-transparent-9.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\jpg.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Modern_Color_Wheel.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\text.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\word.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
 
@@ -75,6 +92,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Data\CardTypes.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\txt.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

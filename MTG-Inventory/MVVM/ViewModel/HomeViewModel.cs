@@ -10,6 +10,5 @@ namespace MTG_Inventory.MVVM.ViewModel
 {
     class HomeViewModel : ObservableObject
     {
-
     }
 }
