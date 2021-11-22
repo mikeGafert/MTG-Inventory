@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows;
+using System.IO;
 
 namespace MTG_Inventory.MVVM.ViewModel
 {
@@ -43,6 +44,16 @@ namespace MTG_Inventory.MVVM.ViewModel
         }
 
         // Image Info Block
+        private int _pGBar_ImageFolderPath = 0;
+        public int PGBar_ImageFolderPath
+        {
+            get { return _pGBar_ImageFolderPath; }
+            set 
+            { 
+                _pGBar_ImageFolderPath = value;
+                OnPropertyChanged();
+            }
+        }
         private int _downloadedImagesCount = 0;
         public int DownloadedImagesCount
         {
@@ -107,6 +118,8 @@ namespace MTG_Inventory.MVVM.ViewModel
                 PGBar_AllDataJsonPath = 1;
             if (DataFiles[1].IsExisting)
                 PGBar_CardTypesPath = 1;
+            if (!Directory.Exists(DataModel.imageFolderPath))
+                PGBar_ImageFolderPath = 1;            
             ImageFolderPath = DataModel.imageFolderPath;
             TotalImages = DataModel.totalImages;
         }

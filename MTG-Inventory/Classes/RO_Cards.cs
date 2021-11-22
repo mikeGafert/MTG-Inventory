@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MTG_Inventory.Classes
 {
-    internal class RootObject
+    internal class RO_Cards
     {
         [JsonProperty("meta")]
         public Meta Meta { get; set; }

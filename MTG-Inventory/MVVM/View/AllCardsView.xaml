@@ -1,0 +1,337 @@
+﻿<UserControl x:Class="MTG_Inventory.MVVM.View.AllCardsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MTG_Inventory.MVVM.View"
+             xmlns:viewModel="clr-namespace:MTG_Inventory.MVVM.ViewModel"  
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type=viewModel:AllCardsViewModel}"
+             d:DesignHeight="750" d:DesignWidth="1200">
+    <UserControl.Resources>
+        <viewModel:AllCardsViewModel x:Key="ACVM"/>
+    </UserControl.Resources>
+
+    <DockPanel>
+
+        <DockPanel HorizontalAlignment="Stretch"
+                   VerticalAlignment="Stretch">
+
+            <StackPanel VerticalAlignment="Top">
+
+                <TextBlock Text="All Cards"
+                           Foreground="AliceBlue"
+                           FontSize="28"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin="0,0,0,10"
+                           FontFamily="/Fonts/#ProductSans"/>
+
+                <TextBlock DockPanel.Dock="Top"
+                           Text="Title"
+                           Foreground="AliceBlue"
+                           FontSize="18"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin="0,0,0,0"
+                           FontFamily="/Fonts/#ProductSans"/>
+
+                <TextBox Margin="5"          
+                         Style="{StaticResource ModernTextbox}"/>
+
+                <Separator/>
+
+                <TextBlock Text="Colors"
+                           Foreground="AliceBlue"
+                           FontSize="18"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin="0,0,0,0"
+                           FontFamily="/Fonts/#ProductSans"/>
+
+                <Grid VerticalAlignment="Center"
+                      Margin="0,5,5,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <CheckBox x:Name="CHB_w"                              
+                              Grid.Row="0"
+                              Grid.Column="0"
+                              Style="{StaticResource CardTypesTheme}"
+                              IsChecked="{Binding ElementName=AllCardsViewModel, Path=Color_White, Mode=TwoWay}"/>
+                    <Image Source="/Images/14-146289_the-gathering-pro-tour-magic-points-mana-ravnica.png"
+                           Grid.Row="0"
+                           Grid.Column="1"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           Height="20"
+                           Margin="2,2,0,0"
+                           Visibility="{Binding ElementName=AllCardsViewModel, Path=Color_White}">
+                    </Image>
+
+                    <CheckBox Grid.Row="0"
+                              Grid.Column="2"
+                              Style="{StaticResource CardTypesTheme}"/>
+                    <Image Source="/Images/14-145940_the-gathering-magic-points-mana-playing-card-collectible.png"
+                           Grid.Row="0"
+                           Grid.Column="3"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           Height="20"
+                           Margin="2,2,0,0">
+                    </Image>
+
+                    <CheckBox Grid.Row="0"
+                              Grid.Column="4"
+                              Style="{StaticResource CardTypesTheme}"/>
+                    <Image Source="/Images/218-2186106_big-image-mtg-blue-mana-symbol-clipart.png"
+                           Grid.Row="0"
+                           Grid.Column="5"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           Height="20"
+                           Margin="2,2,0,0">
+                    </Image>
+
+                    <CheckBox Grid.Row="1"
+                              Grid.Column="0"
+                              Style="{StaticResource CardTypesTheme}"/>
+                    <Image Source="/Images/381-3817545_medium-image-mtg-black-mana-symbol-clipart.png"
+                           Grid.Row="1"
+                           Grid.Column="1"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           Height="20"
+                           Margin="2,2,0,0">
+                    </Image>
+
+                    <CheckBox Grid.Row="1"
+                              Grid.Column="2"
+                              Style="{StaticResource CardTypesTheme}"/>
+                    <Image Source="/Images/562-5623946_transparent-playing-card-clipart-magic-the-gathering-green.png"
+                           Grid.Row="1"
+                           Grid.Column="3"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           Height="20"
+                           Margin="2,2,0,0">
+                    </Image>
+
+                    <CheckBox Grid.Row="1"
+                              Grid.Column="4"
+                              Style="{StaticResource CardTypesTheme}"/>
+                    <Image Source="/Images/C.png"
+                           Grid.Row="1"
+                           Grid.Column="5"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           Height="20"
+                           Margin="2,2,0,0">
+                    </Image>
+                </Grid>
+
+                <Separator/>
+
+                <TextBlock Text="Card Types"
+                           Foreground="AliceBlue"
+                           FontSize="18"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin="0,0,0,0"
+                           FontFamily="/Fonts/#ProductSans"/>
+
+                <Grid VerticalAlignment="Center"
+                      Margin="0,5,5,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <!--<RowDefinition/>-->
+                    </Grid.RowDefinitions>
+
+                    <CheckBox Grid.Row="0"
+                              Grid.Column="0"                                
+                              Style="{StaticResource CardTypesTheme}"
+                              Content="{Binding CardTypes[0]}" />
+
+                    <CheckBox Grid.Row="0"
+                              Grid.Column="1"
+                              Style="{StaticResource CardTypesTheme}"
+                              Content="{Binding CardTypes[1]}" />
+
+                    <CheckBox Grid.Row="1"
+                              Grid.Column="0"
+                              Style="{StaticResource CardTypesTheme}"                             
+                              Content="{Binding CardTypes[2]}" />
+
+                    <CheckBox Grid.Row="1"
+                              Grid.Column="1"
+                              Style="{StaticResource CardTypesTheme}"
+                              Content="{Binding CardTypes[3]}" />
+
+                    <CheckBox Grid.Row="2"
+                              Grid.Column="0"
+                              Style="{StaticResource CardTypesTheme}"                              
+                              Content="{Binding CardTypes[4]}" />
+
+                    <CheckBox Grid.Row="2"
+                              Grid.Column="1"
+                              Style="{StaticResource CardTypesTheme}"
+                              Content="{Binding CardTypes[5]}" />
+
+                    <CheckBox Grid.Row="3"
+                              Grid.Column="0"
+                              Style="{StaticResource CardTypesTheme}"                              
+                              Content="{Binding CardTypes[6]}" />
+
+                    <CheckBox Grid.Row="3"
+                              Grid.Column="1"
+                              Style="{StaticResource CardTypesTheme}"
+                              Content="{Binding CardTypes[7]}" />
+
+                    <CheckBox Grid.Row="4"
+                              Grid.Column="0"
+                              Style="{StaticResource CardTypesTheme}"                           
+                              Content="{Binding CardTypes[8]}" />
+
+                    <CheckBox Grid.Row="4"
+                              Grid.Column="1"
+                              Style="{StaticResource CardTypesTheme}"
+                              Content="{Binding CardTypes[9]}" />
+
+                    <CheckBox Grid.Row="5"
+                              Grid.Column="0"
+                              Style="{StaticResource CardTypesTheme}"                           
+                              Content="{Binding CardTypes[10]}" />
+
+                    <CheckBox Grid.Row="5"
+                              Grid.Column="1"
+                              Style="{StaticResource CardTypesTheme}"
+                              Content="{Binding CardTypes[11]}" />
+
+                    <CheckBox Grid.Row="6"
+                              Grid.Column="0"
+                              Style="{StaticResource CardTypesTheme}"                            
+                              Content="{Binding CardTypes[12]}" />
+
+                    <CheckBox Grid.Row="6"
+                              Grid.Column="1"
+                              Style="{StaticResource CardTypesTheme}"
+                              Content="{Binding CardTypes[13]}" />
+
+                    <!--<CheckBox Grid.Row="7"
+                              Grid.Column="0"
+                              Style="{StaticResource CardTypesTheme}"                             
+                              Content="{Binding CardTypes[14]}" />-->
+
+                    <!--<CheckBox Grid.Row="0"
+                              Grid.Column="1"
+                              Style="{StaticResource CardTypesTheme}"
+                              Content="{Binding CardTypes[15]}" />-->
+                </Grid>
+
+                <Separator/>
+
+                <TextBlock Text="Text"
+                           Foreground="AliceBlue"
+                           FontSize="18"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin="0,0,0,0"
+                           FontFamily="/Fonts/#ProductSans"/>
+
+                <TextBox Margin="5"          
+                         Style="{StaticResource ModernTextbox}"/>
+
+                <Separator/>
+
+                <StackPanel Orientation="Horizontal"
+                            Margin="0,5,0,0">
+                    <Button Name="Reset" 
+                            Width="67.5"
+                            Height="20"
+                            Margin="5,0,0,0"
+                            Style="{StaticResource ModernButtonTheme}"
+                            Command="{Binding BTN_Reset}"/>
+
+                    <Button Name="Select"
+                            Width="67.5"
+                            Height="20"
+                            Margin="5,0,0,0"
+                            Style="{StaticResource ModernButtonTheme}"
+                            Command="{Binding BTN_Select}"/>
+                </StackPanel>
+
+                <Button Height="20"
+                        Width="140"
+                        Margin="5,5,5,0"                        
+                        Style="{StaticResource ModernButtonTheme}"
+                        Content="{Binding ButtonLoadText}"                    
+                        Command="{Binding BTN_LoadData}"/>
+
+                <!--<DatePicker x:Name="FromDate" 
+                            Height="25"
+                            Width="110"
+                            Margin="10,0,1,10" 
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            DisplayDateStart="2016,08,01"
+                            DisplayDateEnd="2021,12,31"
+                            DisplayDate="2016,08,01"
+                            SelectedDate="{Binding Path=SelectedDateFrom, Mode=TwoWay}"/>
+
+                <DatePicker x:Name="UntilDate" 
+                            Height="25"
+                            Width="110"
+                            Margin="1,0,1,10"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"                        
+                            DisplayDateStart="2016,08,01"
+                            DisplayDateEnd="2021,12,31"
+                            DisplayDate="2021,12,31"
+                            SelectedDate="{Binding Path=SelectedDateUntil, Mode=TwoWay}"/>-->
+
+
+            </StackPanel>
+
+            <DataGrid ItemsSource="{Binding Card_List}"> 
+                
+            </DataGrid>
+            <!--<ListBox x:Name="ListBox_results">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="{Binding Image}" Margin="2"></Image>
+                            <TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" Margin="5"></TextBlock>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>-->
+
+        </DockPanel>
+    </DockPanel>
+</UserControl>

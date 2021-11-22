@@ -10,12 +10,14 @@ namespace MTG_Inventory.MVVM.ViewModel
     {
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand InventoryViewCommand { get; set; }
+        public RelayCommand AllCardsViewCommand { get; set; }
         public RelayCommand DataViewCommand { get; set; }
         public RelayCommand QuitCommand { get; set; }
 
         public HomeViewModel HomeVM { get; set; }
         public InventoryViewModel InventoryVM { get; set; }
         public DataViewModel DataVM { get; set; }
+        public AllCardsViewModel AllCardsVM { get; set; }
 
         private object _currentView;
         public object CurrentView
@@ -31,12 +33,10 @@ namespace MTG_Inventory.MVVM.ViewModel
         public static HomeViewModel homeVM = new HomeViewModel();
         public static DataViewModel dataVM = new DataViewModel();
         public static InventoryViewModel inventoryVM = new InventoryViewModel();
+        public static AllCardsViewModel allCardsVM = new AllCardsViewModel();
 
         public MainViewModel()
-        {          
-
-            
-
+        {   
             CurrentView = homeVM;
 
             HomeViewCommand = new RelayCommand(o => 
@@ -49,9 +49,15 @@ namespace MTG_Inventory.MVVM.ViewModel
                 CurrentView = inventoryVM;
             });
 
+
             DataViewCommand = new RelayCommand(o =>
             {
                 CurrentView = dataVM;
+            });
+
+            AllCardsViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = allCardsVM;
             });
 
             QuitCommand = new RelayCommand(o =>

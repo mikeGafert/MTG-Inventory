@@ -185,7 +185,9 @@
                         </StackPanel>
 
                         <StackPanel Margin="5">
-                            <ProgressBar Height="10"/>
+                            <ProgressBar Height="10"
+                                         Value="{Binding PGBar_ImageFolderPath}"
+                                         Maximum="1"/>
                             <Border HorizontalAlignment="Stretch"
                                     Background="Aqua"
                                     Margin="0,2.5">

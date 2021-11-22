@@ -58,6 +58,13 @@
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding InventoryViewCommand}"/>
 
+                <RadioButton Content="All Cards"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding AllCardsViewCommand}"/>
+
                 <RadioButton Content="Data"
                              Height="50"
                              Foreground="White"

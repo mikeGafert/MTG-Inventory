@@ -1,5 +1,6 @@
 ﻿using MTG_Inventory.Classes;
 using MTG_Inventory.Core;
+using MTG_Inventory.MVVM.ViewModel;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,7 @@ namespace MTG_Inventory.MVVM.Model
                 localPath:@$"{Path.Combine(roamingFolderPath, "CardTypes.json")}",
                 downloadPath:@"https://mtgjson.com/api/v5/CardTypes.json")
         };
-        private static string jsonString = "";
+        public static string jsonString = "";
 
         // Global Data
         public static List<Card> cardList = new();
@@ -43,15 +44,13 @@ namespace MTG_Inventory.MVVM.Model
         {
             // Create Programm Folder if not existing
             if (!Directory.Exists(roamingFolderPath))
-            {
                 Directory.CreateDirectory(roamingFolderPath);
-            }
+
 
             // Create CardImages Folder if not existing
             if (!Directory.Exists(imageFolderPath))
-            {
                 Directory.CreateDirectory(imageFolderPath);
-            }
+
 
             // Check each file in FileList if existing and up to date.
             List<DataFile> DataFilesToDownload = new();
@@ -112,8 +111,8 @@ namespace MTG_Inventory.MVVM.Model
                 if (!string.IsNullOrEmpty(jsonString))
                 {
                     // Generate Root Object from AllPrintingsJson
-                    RootObject rootObject = new();
-                    rootObject = JsonConvert.DeserializeObject<RootObject>(jsonString);
+                    RO_Cards rootObject = new();
+                    rootObject = JsonConvert.DeserializeObject<RO_Cards>(jsonString);
 
                     jsonString = "";
 
@@ -135,11 +134,15 @@ namespace MTG_Inventory.MVVM.Model
             //Generate CardTypes List from CardTypesJson
             else if (DataFiles[i].Name == DataFiles[1].Name)
             {
-                var dict = JsonConvert.DeserializeObject<Dictionary<string, object>>(jsonString);
+                RO_CardTypes rootObject = new();
 
-                foreach (var item in dict.Keys)
+                rootObject = JsonConvert.DeserializeObject<RO_CardTypes>(jsonString);
+
+                jsonString = "";
+
+                foreach (var item in rootObject.CardTypes.Keys)
                 {
-                    cardTypes.Add(item.ToString());
+                    cardTypes.Add(item);
                 }
             }
         }

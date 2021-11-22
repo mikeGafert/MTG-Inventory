@@ -16,16 +16,5 @@ namespace MTG_Inventory.MVVM.Model
 {
     internal class InventoryModel
     {
-
-
-
-        
-
-        // Event to track the progress
-        //void wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
-        //{
-        //    progressBar.Value = e.ProgressPercentage;
-        //}
-
     }
 }
