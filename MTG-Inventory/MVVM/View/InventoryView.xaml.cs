@@ -21,9 +21,8 @@ namespace MTG_Inventory.MVVM.View
     public partial class InventoryView : UserControl
     {
         public InventoryView()
-        {
+        {    
             InitializeComponent();
-                      
         }
     }
 }

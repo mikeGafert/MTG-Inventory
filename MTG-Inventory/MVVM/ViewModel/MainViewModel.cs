@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using System.Windows;
 using MTG_Inventory.Core;
+using MTG_Inventory.MVVM.Model;
 
 namespace MTG_Inventory.MVVM.ViewModel
 {
@@ -27,27 +28,30 @@ namespace MTG_Inventory.MVVM.ViewModel
             }
         }
 
-        public MainViewModel()
-        {
-            HomeVM = new HomeViewModel();
-            InventoryVM = new InventoryViewModel();
-            DataVM = new DataViewModel();
+        public static HomeViewModel homeVM = new HomeViewModel();
+        public static DataViewModel dataVM = new DataViewModel();
+        public static InventoryViewModel inventoryVM = new InventoryViewModel();
 
-            CurrentView = HomeVM;
+        public MainViewModel()
+        {          
+
+            
+
+            CurrentView = homeVM;
 
             HomeViewCommand = new RelayCommand(o => 
             {
-                CurrentView = HomeVM;
+                CurrentView = homeVM;
             });           
 
             InventoryViewCommand = new RelayCommand(o =>
             {
-                CurrentView = InventoryVM;
+                CurrentView = inventoryVM;
             });
 
             DataViewCommand = new RelayCommand(o =>
             {
-                CurrentView = DataVM;
+                CurrentView = dataVM;
             });
 
             QuitCommand = new RelayCommand(o =>

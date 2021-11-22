@@ -6,7 +6,7 @@ namespace MTG_Inventory.Core
     class RelayCommand : ICommand
     {
         private Action<object> _execute;
-        private Func<object, bool> _canExecute;
+        private Func<object, bool> _canExecute;       
 
         public event EventHandler CanExecuteChanged
         {
@@ -18,7 +18,7 @@ namespace MTG_Inventory.Core
         {
             _execute = execute;
             _canExecute = canExecute;
-        }
+        }       
 
         public bool CanExecute(object parameter)
         {

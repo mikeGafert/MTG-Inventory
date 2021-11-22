@@ -48,7 +48,9 @@
                         </StackPanel>
                         
                         <StackPanel Margin="5">
-                            <ProgressBar Height="10"/>
+                            <ProgressBar Height="10"
+                                         Value="{Binding PGBar_AllDataJsonPath}"
+                                         Maximum="1"/>
                             <Border HorizontalAlignment="Stretch"
                                     Background="Aqua"
                                     Margin="0,2.5">
@@ -115,7 +117,9 @@
                         </StackPanel>
 
                         <StackPanel Margin="5">
-                            <ProgressBar Height="10"/>
+                            <ProgressBar Height="10"
+                                         Value="{Binding PGBar_CardTypesPath}"
+                                         Maximum="1"/>
                             <Border HorizontalAlignment="Stretch"
                                     Background="Aqua"
                                     Margin="0,2.5">
@@ -191,7 +195,9 @@
                                          FontSize="10"/>
                             </Border>
                             <ProgressBar Height="10"
-                                         x:Name="PGB_TotalImages"/>
+                                         x:Name="PGB_TotalImages"
+                                         Value="{Binding DownloadedImagesCount}" 
+                                         Maximum="{Binding CardListWithImagesToDownloadCount}"/>
                             <Border HorizontalAlignment="Stretch"
                                     Background="Aqua"
                                     Margin="0,2.5">
@@ -216,13 +222,16 @@
                     <Button Height="25"
                             Width="100"
                             Margin="5"
-                            Visibility="Hidden"/>
-                    <Button x:Name="BTN_DownloadImages" 
+                            Content="{Binding CheckImagesButtonText}"
+                            Command="{Binding Click_CheckImages}"
+                            IsEnabled="True"/>
+                    <Button Name="BTN_DownloadImages" 
                             Height="25"
                             Width="100"
                             Margin="5"
                             Content="{Binding DownloadImagesButtonText}"
-                            Command="{Binding BTN_DownloadImages}"/>
+                            Command="{Binding Click_DownloadImages}"
+                            IsEnabled="True"/>
                     <Button Height="25"
                             Width="100"
                             Margin="5"

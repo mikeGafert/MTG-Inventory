@@ -18,6 +18,7 @@ namespace MTG_Inventory.Core
 {
     internal class Downloader
     {
+
         /// <summary>
         /// Download all missing Pictures
         /// </summary>
@@ -27,10 +28,10 @@ namespace MTG_Inventory.Core
 
         private static readonly string _baseUrlPattern = "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid={0}&type=card";
 
-        private static readonly HttpClient _httpClient = new HttpClient();
-
         internal static void DownloadAllMissingPictures(CancellationToken cancellationToken = default)
         {
+            HttpClient _httpClient = new HttpClient();
+
             using (_httpClient)
             {
                 ServicePointManager.DefaultConnectionLimit = 8;
@@ -81,17 +82,28 @@ namespace MTG_Inventory.Core
         //}
         #endregion
 
-        public static async Task DownloadDataFileAsync(int i)
+        public static async Task DownloadDataFileAsync(List<DataFile> DataFilesToDownload, CancellationToken cancellationToken = default)
         {
+            HttpClient _httpClient = new HttpClient();
+
             using (_httpClient)
-            {
-                Uri uri = new Uri(DataModel.DataFiles[i].DownloadPath);
-                var response = await _httpClient.GetAsync(uri);
-                using (var fs = new FileStream(@$"{DataModel.DataFiles[i].LocalPath}",
-                    FileMode.CreateNew))
+            {      
+                var parallelOptions = new ParallelOptions()
                 {
-                    await response.Content.CopyToAsync(fs);
-                }
+                    MaxDegreeOfParallelism = 5,
+                    CancellationToken = cancellationToken,
+                };
+                Parallel.ForEachAsync(DataFilesToDownload, parallelOptions, async (file, ct) =>
+                {
+                    string url = String.Format(file.DownloadPath);
+                    string filePath = Path.Combine(file.LocalPath);
+
+                    using HttpResponseMessage response = await _httpClient.GetAsync(url, ct);
+                    response.EnsureSuccessStatusCode();
+
+                    using FileStream fileStream = File.OpenWrite(filePath);
+                    await response.Content.CopyToAsync(fileStream);                    
+                }).Wait();
             }
         }
     }

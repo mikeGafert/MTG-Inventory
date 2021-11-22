@@ -1,12 +1,15 @@
 ﻿using MTG_Inventory.Classes;
 using MTG_Inventory.Core;
 using MTG_Inventory.MVVM.Model;
+using MTG_Inventory.MVVM.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows;
 
 namespace MTG_Inventory.MVVM.ViewModel
 {
@@ -14,8 +17,63 @@ namespace MTG_Inventory.MVVM.ViewModel
     {
         public List<DataFile> DataFiles { get; set; }
         public string ImageFolderPath { get; set; }
-        public string TotalImages { get; set; }
 
+        // AllDataJson Info Block
+        private int _pGBar_AllDataJsonPath = 0;
+        public int PGBar_AllDataJsonPath
+        {
+            get { return _pGBar_AllDataJsonPath; }
+            set
+            {
+                _pGBar_AllDataJsonPath = value;
+                OnPropertyChanged();
+            }
+        }
+
+        // CarTypesJson Info Block
+        private int _pGBar_CardTypesPath = 0;
+        public int PGBar_CardTypesPath
+        {
+            get { return _pGBar_CardTypesPath; }
+            set
+            {
+                _pGBar_CardTypesPath = value;
+                OnPropertyChanged();
+            }
+        }
+
+        // Image Info Block
+        private int _downloadedImagesCount = 0;
+        public int DownloadedImagesCount
+        {
+            get { return _downloadedImagesCount; }
+            set
+            {
+                _downloadedImagesCount = value;
+                OnPropertyChanged();
+            }
+        }
+        private int _cardListWithImagesToDownloadCount = 100;
+        public int CardListWithImagesToDownloadCount
+        {
+            get { return _cardListWithImagesToDownloadCount; }
+            set
+            {
+                _cardListWithImagesToDownloadCount = value;
+                OnPropertyChanged();
+
+            }
+        }
+        private string _totalImages;
+        public string TotalImages
+        {
+            get { return _totalImages; }
+            set
+            {
+                _totalImages = value;
+                OnPropertyChanged();
+            }
+        }
         private string _downloadImagesButtonText = "Download";
         public string DownloadImagesButtonText
         {
@@ -26,18 +84,46 @@ namespace MTG_Inventory.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
+        private string _checkImagesButtonText = "Check images";
+
+        public string CheckImagesButtonText
+        {
+            get { return _checkImagesButtonText; }
+            set
+            {
+                _checkImagesButtonText = value;
+                OnPropertyChanged();
+            }
+        }
 
         public DataViewModel()
         {
             DataModel.CheckAllFiles();
             DataModel.ReadAllRelevantFiles();
+            //DataModel.CheckImages(); // Not relevant in Programm start sequence
+
             DataFiles = DataModel.DataFiles;
-            DataModel.CheckImages();
+            if (DataFiles[0].IsExisting)
+                PGBar_AllDataJsonPath = 1;
+            if (DataFiles[1].IsExisting)
+                PGBar_CardTypesPath = 1;
             ImageFolderPath = DataModel.imageFolderPath;
             TotalImages = DataModel.totalImages;
         }
 
-        public RelayCommand BTN_DownloadImages => new RelayCommand(DownloadImages);
+
+        public RelayCommand Click_CheckImages => new RelayCommand(CheckImages);
+        private void CheckImages(object commandParameter)
+        {
+            CheckImagesButtonText = "Checking...";
+
+            (TotalImages, DownloadedImagesCount, CardListWithImagesToDownloadCount) = DataModel.CheckImages();
+
+            CheckImagesButtonText = "Checked";
+
+        }
+
+        public RelayCommand Click_DownloadImages => new RelayCommand(DownloadImages);
         private void DownloadImages(object commandParameter)
         {
             DownloadImagesButtonText = "Downloading...";

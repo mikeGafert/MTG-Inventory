@@ -54,6 +54,7 @@ namespace MTG_Inventory.MVVM.Model
             }
 
             // Check each file in FileList if existing and up to date.
+            List<DataFile> DataFilesToDownload = new();
             for (int i = 0; i < DataFiles.Count; i++)
             {
                 if (File.Exists(DataFiles[i].LocalPath))
@@ -66,10 +67,10 @@ namespace MTG_Inventory.MVVM.Model
                     DataFiles[i].FileSize = FileSizeFormatter.FormatSize(new FileInfo(DataFiles[i].LocalPath).Length);
                 }
                 else
-                {      
+                {
                     try
                     {
-                        _ = Downloader.DownloadDataFileAsync(i);
+                        DataFilesToDownload.Add(DataFiles[i]);
 
                         DataFiles[i].IsExisting = true;
                         DataFiles[i].IsUpToDate = true;
@@ -80,8 +81,12 @@ namespace MTG_Inventory.MVVM.Model
                         DataFiles[i].FailedToDownload = true;
                         DataFiles[i].IsExisting = false;
                         DataFiles[i].IsUpToDate = false;
-                    }                   
+                    }
                 }
+            }
+            if (DataFilesToDownload.Count > 0)
+            {
+                _ = Downloader.DownloadDataFileAsync(DataFilesToDownload);
             }
         }
 
@@ -91,7 +96,9 @@ namespace MTG_Inventory.MVVM.Model
             {
                 if (DataFiles[i].IsExisting)
                 {
-                    jsonString = DeSerializer.ReadJsonFile(DataFiles[i].LocalPath);
+                    //jsonString = DeSerializer.ReadJsonFile(DataFiles[i].LocalPath);
+                    jsonString = File.ReadAllText(DataFiles[i].LocalPath);
+
                     GenerateObjectsFromData(i);
                 }
             }
@@ -137,11 +144,11 @@ namespace MTG_Inventory.MVVM.Model
             }
         }
 
-        public static void CheckImages()
+        public static (string, int, int) CheckImages()
         {
             downloadedImages = Directory.GetFiles(imageFolderPath, "*.jpg")
-                                                  .Select(Path.GetFileNameWithoutExtension)
-                                                  .ToList();
+                                        .Select(Path.GetFileNameWithoutExtension)
+                                        .ToList();
 
             foreach (Card card in cardList)
             {
@@ -162,6 +169,7 @@ namespace MTG_Inventory.MVVM.Model
             {
                 totalImages = $"All {downloadedImages.Count} Pistures downloaded.";
             }
+            return (totalImages, downloadedImages.Count, CardListWithImagesToDownload.Count);
         }
     }
 }
