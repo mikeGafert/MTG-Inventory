@@ -20,14 +20,10 @@ namespace MTG_Inventory.Core
             _canExecute = canExecute;
         }       
 
-        public bool CanExecute(object parameter)
-        {
-            return _canExecute == null || _canExecute(parameter);
-        }
+        public bool CanExecute(object parameter) => this._canExecute?.Invoke(parameter) ?? true;
+        
 
-        public void Execute(object parameter)
-        {
-            _execute(parameter);
-        }
+        public void Execute(object parameter) => this._execute?.Invoke(parameter);
+        
     }
 }

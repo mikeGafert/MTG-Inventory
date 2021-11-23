@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace MTG_Inventory.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for AllCardsView.xaml
+    /// Interaction logic for ScannerView.xaml
     /// </summary>
-    public partial class AllCardsView : UserControl
+    public partial class ScannerView : UserControl
     {
-        public AllCardsView()
+        public ScannerView()
         {
             InitializeComponent();
         }

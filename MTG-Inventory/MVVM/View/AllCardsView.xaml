@@ -8,12 +8,12 @@
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type=viewModel:AllCardsViewModel}"
              d:DesignHeight="750" d:DesignWidth="1200">
-    <!--<UserControl.Resources>
+    <UserControl.Resources>
         <viewModel:AllCardsViewModel x:Key="AKVM"/>
-    </UserControl.Resources>-->
-    <UserControl.DataContext>
+    </UserControl.Resources>
+    <!--<UserControl.DataContext>
         <viewModel:AllCardsViewModel/>
-    </UserControl.DataContext>
+    </UserControl.DataContext>-->
 
 
     <DockPanel>
@@ -70,7 +70,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <CheckBox x:Name="CHB_w"                              
+                    <CheckBox x:Name="CHB_w"
                               Grid.Row="0"
                               Grid.Column="0"
                               Style="{StaticResource CardTypesTheme}"
@@ -81,13 +81,13 @@
                            HorizontalAlignment="Left"
                            VerticalAlignment="Center"
                            Height="20"
-                           Margin="2,2,0,0"
-                           Visibility="{Binding ElementName=AllCardsViewModel, Path=Color_White}">
+                           Margin="2,2,0,0">
                     </Image>
 
                     <CheckBox Grid.Row="0"
                               Grid.Column="2"
-                              Style="{StaticResource CardTypesTheme}"/>
+                              Style="{StaticResource CardTypesTheme}"
+                              IsChecked="{Binding Color_White}"/>
                     <Image Source="/Images/14-145940_the-gathering-magic-points-mana-playing-card-collectible.png"
                            Grid.Row="0"
                            Grid.Column="3"
@@ -318,6 +318,7 @@
 
             </StackPanel>
 
+            <!--<WrapPanel/>-->
             <DataGrid ItemsSource="{Binding Card_List}"> 
                 
             </DataGrid>

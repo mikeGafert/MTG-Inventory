@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:MTG_Inventory"
              xmlns:viewModel="clr-namespace:MTG_Inventory.MVVM.ViewModel"
              xmlns:view="clr-namespace:MTG_Inventory.MVVM.View"
+             xmlns:model="clr-namespace:MTG_Inventory.MVVM.Model"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -30,6 +31,10 @@
 
             <DataTemplate DataType="{x:Type viewModel:AllCardsViewModel}">
                 <view:AllCardsView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:ScannerViewModel}">
+                <view:ScannerView/>
             </DataTemplate>
             
         </ResourceDictionary>

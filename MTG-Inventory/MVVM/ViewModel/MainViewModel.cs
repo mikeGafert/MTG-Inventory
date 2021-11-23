@@ -12,11 +12,13 @@ namespace MTG_Inventory.MVVM.ViewModel
         public RelayCommand InventoryViewCommand { get; set; }
         public RelayCommand AllCardsViewCommand { get; set; }
         public RelayCommand DataViewCommand { get; set; }
+        public RelayCommand ScannerViewCommand { get; set; }
         public RelayCommand QuitCommand { get; set; }
 
         public HomeViewModel HomeVM { get; set; }
         public InventoryViewModel InventoryVM { get; set; }
         public DataViewModel DataVM { get; set; }
+        public ScannerViewModel ScannerVM { get; set; }
         public AllCardsViewModel AllCardsVM { get; set; }
 
         private object _currentView;
@@ -30,39 +32,40 @@ namespace MTG_Inventory.MVVM.ViewModel
             }
         }
 
-        public static HomeViewModel homeVM;
-        public static DataViewModel dataVM;
-        public static InventoryViewModel inventoryVM;
-        public static AllCardsViewModel allCardsVM;
-
         public MainViewModel()
         {
-            homeVM ??= new HomeViewModel();
-            dataVM ??= new DataViewModel();
-            inventoryVM ??= new InventoryViewModel();
-            allCardsVM ??= new AllCardsViewModel();
+            HomeVM ??= new HomeViewModel();
+            DataVM ??= new DataViewModel();
+            InventoryVM ??= new InventoryViewModel();
+            AllCardsVM ??= new AllCardsViewModel();
+            ScannerVM ??= new ScannerViewModel();
 
-            CurrentView = homeVM;
+            CurrentView = HomeVM;
 
             HomeViewCommand = new RelayCommand(o =>
             {
-                CurrentView = homeVM;
+                CurrentView = HomeVM;
             });
 
             InventoryViewCommand = new RelayCommand(o =>
             {
-                CurrentView = inventoryVM;
+                CurrentView = InventoryVM;
             });
 
 
             DataViewCommand = new RelayCommand(o =>
             {
-                CurrentView = dataVM;
+                CurrentView = DataVM;
             });
 
             AllCardsViewCommand = new RelayCommand(o =>
             {
-                CurrentView = allCardsVM;
+                CurrentView = AllCardsVM;
+            });
+
+            ScannerViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = ScannerVM;
             });
 
             QuitCommand = new RelayCommand(o =>

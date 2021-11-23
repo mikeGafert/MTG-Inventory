@@ -1,2 +1,3 @@
-*
+*.sql
+AllPrintingsFormatted.json
 !.gitignore

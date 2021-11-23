@@ -78,23 +78,23 @@ namespace MTG_Inventory.MVVM.ViewModel
         private bool _color_White = false;
         public bool Color_White
         {
-            get { return _color_White; }
+            get => _color_White; 
             set
             {
                 _color_White = value;
 
-                if (!value)
-                {
-                    for (int i = 0; i < Color_List.Count; i++)
-                    {
-                        if (Color_List[i].Equals("W"))
-                            Color_List.RemoveAt(i);
-                    }
-                }
-                else
-                {
-                    Color_List.Add("W");
-                }
+                //if (!value)
+                //{
+                //    for (int i = 0; i < Color_List.Count; i++)
+                //    {
+                //        if (Color_List[i].Equals("W"))
+                //            Color_List.RemoveAt(i);
+                //    }
+                //}
+                //else
+                //{
+                //    Color_List.Add("W");
+                //}
 
                 OnPropertyChanged();
             }
