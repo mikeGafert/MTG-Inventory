@@ -4,6 +4,7 @@ using System.Windows;
 using MTG_Inventory.Core;
 using MTG_Inventory.MVVM.Model;
 
+
 namespace MTG_Inventory.MVVM.ViewModel
 {
     class MainViewModel : ObservableObject

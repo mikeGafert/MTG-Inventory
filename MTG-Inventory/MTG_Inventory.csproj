@@ -79,9 +79,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="CoenM.ImageSharp.ImageHash" Version="1.1.5" />
     <PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+    <PackageReference Include="WebcamCapturer.Controls.WPF" Version="1.1.1.2" />
+    <PackageReference Include="WebcamCapturer.Core" Version="1.1.1.2" />
   </ItemGroup>
 
   <ItemGroup>

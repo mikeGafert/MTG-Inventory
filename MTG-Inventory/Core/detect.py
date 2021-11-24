@@ -14,8 +14,7 @@ import pygame
 import imutils
 import numpy as np
 import pygame.camera
-# from pygame.locals import KEYDOWN, K_q, K_s, K_SPACE
-from pygame.locals import *
+from pygame.locals import KEYDOWN, K_q, K_s, K_SPACE
 from . import util
 import argparse
 import glob

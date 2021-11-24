@@ -40,8 +40,9 @@
                            Margin="0,0,0,0"
                            FontFamily="/Fonts/#ProductSans"/>
 
-                <TextBox Margin="5"          
-                         Style="{StaticResource ModernTextbox}"/>
+                <TextBox x:Name="TXB_Title" Margin="5"          
+                         Style="{StaticResource ModernTextbox}"
+                         KeyUp="Title_TextBox_KeyUp"/>
 
                 <Separator/>
 
@@ -73,8 +74,10 @@
                     <CheckBox x:Name="CHB_w"
                               Grid.Row="0"
                               Grid.Column="0"
-                              Style="{StaticResource CardTypesTheme}"
-                              IsChecked="{Binding Color_White}"/>
+                              Style="{StaticResource CardTypesTheme}" 
+                              Checked="Color_Checkbox_Checked"
+                              Unchecked="Color_Checkbox_Unchecked"  
+                              RenderTransformOrigin="462545.335,6.736"/>
                     <Image Source="/Images/14-146289_the-gathering-pro-tour-magic-points-mana-ravnica.png"
                            Grid.Row="0"
                            Grid.Column="1"
@@ -84,10 +87,12 @@
                            Margin="2,2,0,0">
                     </Image>
 
-                    <CheckBox Grid.Row="0"
+                    <CheckBox x:Name="CHB_r" 
+                              Grid.Row="0"
                               Grid.Column="2"
                               Style="{StaticResource CardTypesTheme}"
-                              IsChecked="{Binding Color_White}"/>
+                              Checked="Color_Checkbox_Checked"
+                              Unchecked="Color_Checkbox_Unchecked"/>
                     <Image Source="/Images/14-145940_the-gathering-magic-points-mana-playing-card-collectible.png"
                            Grid.Row="0"
                            Grid.Column="3"
@@ -97,9 +102,12 @@
                            Margin="2,2,0,0">
                     </Image>
 
-                    <CheckBox Grid.Row="0"
+                    <CheckBox x:Name="CHB_u" 
+                              Grid.Row="0"
                               Grid.Column="4"
-                              Style="{StaticResource CardTypesTheme}"/>
+                              Style="{StaticResource CardTypesTheme}"
+                              Checked="Color_Checkbox_Checked"
+                              Unchecked="Color_Checkbox_Unchecked"/>
                     <Image Source="/Images/218-2186106_big-image-mtg-blue-mana-symbol-clipart.png"
                            Grid.Row="0"
                            Grid.Column="5"
@@ -109,9 +117,12 @@
                            Margin="2,2,0,0">
                     </Image>
 
-                    <CheckBox Grid.Row="1"
+                    <CheckBox x:Name="CHB_b" 
+                              Grid.Row="1"
                               Grid.Column="0"
-                              Style="{StaticResource CardTypesTheme}"/>
+                              Style="{StaticResource CardTypesTheme}"
+                              Checked="Color_Checkbox_Checked"
+                              Unchecked="Color_Checkbox_Unchecked"/>
                     <Image Source="/Images/381-3817545_medium-image-mtg-black-mana-symbol-clipart.png"
                            Grid.Row="1"
                            Grid.Column="1"
@@ -121,9 +132,12 @@
                            Margin="2,2,0,0">
                     </Image>
 
-                    <CheckBox Grid.Row="1"
+                    <CheckBox x:Name="CHB_g" 
+                              Grid.Row="1"
                               Grid.Column="2"
-                              Style="{StaticResource CardTypesTheme}"/>
+                              Style="{StaticResource CardTypesTheme}"
+                              Checked="Color_Checkbox_Checked"
+                              Unchecked="Color_Checkbox_Unchecked"/>
                     <Image Source="/Images/562-5623946_transparent-playing-card-clipart-magic-the-gathering-green.png"
                            Grid.Row="1"
                            Grid.Column="3"
@@ -133,9 +147,12 @@
                            Margin="2,2,0,0">
                     </Image>
 
-                    <CheckBox Grid.Row="1"
+                    <CheckBox x:Name="CHB_a" 
+                              Grid.Row="1"
                               Grid.Column="4"
-                              Style="{StaticResource CardTypesTheme}"/>
+                              Style="{StaticResource CardTypesTheme}"
+                              Checked="Color_Checkbox_Checked"
+                              Unchecked="Color_Checkbox_Unchecked"/>
                     <Image Source="/Images/C.png"
                            Grid.Row="1"
                            Grid.Column="5"
@@ -173,85 +190,133 @@
                         <!--<RowDefinition/>-->
                     </Grid.RowDefinitions>
 
-                    <CheckBox Grid.Row="0"
+                    <CheckBox x:Name="CHB_CT_00" 
+                              Grid.Row="0"
                               Grid.Column="0"                                
                               Style="{StaticResource CardTypesTheme}"
-                              Content="{Binding CardTypes[0]}" />
+                              Content="{Binding CardTypes[0]}" 
+                              Checked="CardTypes_Checkbox_Checked"
+                              Unchecked="CardTypes_Checkbox_Unchecked"/>
 
-                    <CheckBox Grid.Row="0"
+                    <CheckBox x:Name="CHB_CT_01"
+                              Grid.Row="0"
                               Grid.Column="1"
                               Style="{StaticResource CardTypesTheme}"
-                              Content="{Binding CardTypes[1]}" />
+                              Content="{Binding CardTypes[1]}"  
+                              Checked="CardTypes_Checkbox_Checked"
+                              Unchecked="CardTypes_Checkbox_Unchecked"/>
 
-                    <CheckBox Grid.Row="1"
+                    <CheckBox x:Name="CHB_CT_02"
+                              Grid.Row="1"
                               Grid.Column="0"
-                              Style="{StaticResource CardTypesTheme}"                             
-                              Content="{Binding CardTypes[2]}" />
+                              Style="{StaticResource CardTypesTheme}" 
+                              Content="{Binding CardTypes[2]}"  
+                              Checked="CardTypes_Checkbox_Checked"
+                              Unchecked="CardTypes_Checkbox_Unchecked"/>
 
-                    <CheckBox Grid.Row="1"
+                    <CheckBox x:Name="CHB_CT_03"
+                              Grid.Row="1"
                               Grid.Column="1"
                               Style="{StaticResource CardTypesTheme}"
-                              Content="{Binding CardTypes[3]}" />
+                              Content="{Binding CardTypes[3]}"  
+                              Checked="CardTypes_Checkbox_Checked"
+                              Unchecked="CardTypes_Checkbox_Unchecked"/>
 
-                    <CheckBox Grid.Row="2"
+                    <CheckBox x:Name="CHB_CT_04"
+                              Grid.Row="2"
                               Grid.Column="0"
-                              Style="{StaticResource CardTypesTheme}"                              
-                              Content="{Binding CardTypes[4]}" />
+                              Style="{StaticResource CardTypesTheme}"  
+                              Content="{Binding CardTypes[4]}"  
+                              Checked="CardTypes_Checkbox_Checked"
+                              Unchecked="{Binding CardTypes_Checkbox_Unchecked}"/>
 
-                    <CheckBox Grid.Row="2"
+                    <CheckBox x:Name="CHB_CT_05"
+                              Grid.Row="2"
                               Grid.Column="1"
                               Style="{StaticResource CardTypesTheme}"
-                              Content="{Binding CardTypes[5]}" />
+                              Content="{Binding CardTypes[5]}"  
+                              Checked="CardTypes_Checkbox_Checked"
+                              Unchecked="CardTypes_Checkbox_Unchecked"/>
 
-                    <CheckBox Grid.Row="3"
+                    <CheckBox x:Name="CHB_CT_06"
+                              Grid.Row="3"
                               Grid.Column="0"
-                              Style="{StaticResource CardTypesTheme}"                              
-                              Content="{Binding CardTypes[6]}" />
+                              Style="{StaticResource CardTypesTheme}" 
+                              Content="{Binding CardTypes[6]}"  
+                              Checked="CardTypes_Checkbox_Checked"
+                              Unchecked="CardTypes_Checkbox_Unchecked"/>
 
-                    <CheckBox Grid.Row="3"
+                    <CheckBox x:Name="CHB_CT_07"
+                              Grid.Row="3"
                               Grid.Column="1"
                               Style="{StaticResource CardTypesTheme}"
-                              Content="{Binding CardTypes[7]}" />
+                              Content="{Binding CardTypes[7]}"  
+                              Checked="CardTypes_Checkbox_Checked"
+                              Unchecked="CardTypes_Checkbox_Unchecked"/>
 
-                    <CheckBox Grid.Row="4"
+                    <CheckBox x:Name="CHB_CT_08"
+                              Grid.Row="4"
                               Grid.Column="0"
-                              Style="{StaticResource CardTypesTheme}"                           
-                              Content="{Binding CardTypes[8]}" />
+                              Style="{StaticResource CardTypesTheme}" 
+                              Content="{Binding CardTypes[8]}"  
+                              Checked="CardTypes_Checkbox_Checked"
+                              Unchecked="CardTypes_Checkbox_Unchecked"/>
 
-                    <CheckBox Grid.Row="4"
+                    <CheckBox x:Name="CHB_CT_09"
+                              Grid.Row="4"
                               Grid.Column="1"
                               Style="{StaticResource CardTypesTheme}"
-                              Content="{Binding CardTypes[9]}" />
+                              Content="{Binding CardTypes[9]}"  
+                              Checked="CardTypes_Checkbox_Checked"
+                              Unchecked="CardTypes_Checkbox_Unchecked"/>
 
-                    <CheckBox Grid.Row="5"
+                    <CheckBox x:Name="CHB_CT_10"                              
+                              Grid.Row="5"
                               Grid.Column="0"
-                              Style="{StaticResource CardTypesTheme}"                           
-                              Content="{Binding CardTypes[10]}" />
+                              Style="{StaticResource CardTypesTheme}" 
+                              Content="{Binding CardTypes[10]}"  
+                              Checked="CardTypes_Checkbox_Checked"
+                              Unchecked="CardTypes_Checkbox_Unchecked"/>
 
-                    <CheckBox Grid.Row="5"
+                    <CheckBox x:Name="CHB_CT_11"
+                              Grid.Row="5"
                               Grid.Column="1"
                               Style="{StaticResource CardTypesTheme}"
-                              Content="{Binding CardTypes[11]}" />
+                              Content="{Binding CardTypes[11]}"  
+                              Checked="CardTypes_Checkbox_Checked"
+                              Unchecked="CardTypes_Checkbox_Unchecked"/>
 
-                    <CheckBox Grid.Row="6"
+                    <CheckBox x:Name="CHB_CT_12"
+                              Grid.Row="6"
                               Grid.Column="0"
-                              Style="{StaticResource CardTypesTheme}"                            
-                              Content="{Binding CardTypes[12]}" />
+                              Style="{StaticResource CardTypesTheme}" 
+                              Content="{Binding CardTypes[12]}"  
+                              Checked="CardTypes_Checkbox_Checked"
+                              Unchecked="CardTypes_Checkbox_Unchecked"/>
 
-                    <CheckBox Grid.Row="6"
+                    <CheckBox x:Name="CHB_CT_13"
+                              Grid.Row="6"
                               Grid.Column="1"
                               Style="{StaticResource CardTypesTheme}"
-                              Content="{Binding CardTypes[13]}" />
+                              Content="{Binding CardTypes[13]}"  
+                              Checked="CardTypes_Checkbox_Checked"
+                              Unchecked="CardTypes_Checkbox_Unchecked"/>
 
-                    <!--<CheckBox Grid.Row="7"
+                    <!--<CheckBox x:Name="CHB_CT_14"
+                              Grid.Row="7"
                               Grid.Column="0"
-                              Style="{StaticResource CardTypesTheme}"                             
-                              Content="{Binding CardTypes[14]}" />-->
+                              Style="{StaticResource CardTypesTheme}" 
+                              Content="{Binding CardTypes[14]}"  
+                              Checked="CardTypes_Checkbox_Checked"
+                              Unchecked="CardTypes_Checkbox_Unchecked"/>-->
 
-                    <!--<CheckBox Grid.Row="0"
+                    <!--<CheckBox x:Name="CHB_CT_15"
+                              Grid.Row="0"
                               Grid.Column="1"
                               Style="{StaticResource CardTypesTheme}"
-                              Content="{Binding CardTypes[15]}" />-->
+                              Content="{Binding CardTypes[15]}"  
+                              Checked="CardTypes_Checkbox_Checked"
+                              Unchecked="CardTypes_Checkbox_Unchecked"/>-->
                 </Grid>
 
                 <Separator/>
@@ -264,8 +329,10 @@
                            Margin="0,0,0,0"
                            FontFamily="/Fonts/#ProductSans"/>
 
-                <TextBox Margin="5"          
-                         Style="{StaticResource ModernTextbox}"/>
+                <TextBox x:Name="TXB_Card" 
+                         Margin="5"          
+                         Style="{StaticResource ModernTextbox}"                    
+                         KeyUp="CardSearch_TextBox_KeyUp"/>
 
                 <Separator/>
 

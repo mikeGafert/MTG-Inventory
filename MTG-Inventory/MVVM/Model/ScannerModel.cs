@@ -11,7 +11,7 @@ namespace MTG_Inventory.MVVM.Model
 {
     internal class ScannerModel
     {
-        //detect(on_detect);
+        
 
     }
 }
