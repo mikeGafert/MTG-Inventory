@@ -142,7 +142,7 @@ namespace MTG_Inventory.MVVM.Model
 
                 foreach (var item in rootObject.CardTypes.Keys)
                 {
-                    cardTypes.Add(item);
+                    cardTypes.Add(item.ToLower());
                 }
             }
         }

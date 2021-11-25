@@ -23,12 +23,11 @@ namespace MTG_Inventory.MVVM.View
     /// </summary>
     public partial class AllCardsView : UserControl
     {
+        internal static Filter filter { get; set; } = new();
         public AllCardsView()
         {
             InitializeComponent();
         }
-
-        internal Filter filter = new();
 
         public void Color_Checkbox_Checked(object sender, EventArgs e)
         {
@@ -82,8 +81,8 @@ namespace MTG_Inventory.MVVM.View
 
             if (txtbx.Text.Length > 2)
             {
-                filter.TitleSearchText = txtbx.Text;
+                filter.TitleSearchText = txtbx.Text;                
             }
-        }
+        }        
     }
 }

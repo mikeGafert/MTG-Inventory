@@ -12,8 +12,8 @@ namespace MTG_Inventory.MVVM.ViewModel
 {
     class AllCardsViewModel : ObservableObject
     {
-        private IEnumerable<Card> _card_List; // DataList the DataGrid is working with
-        public IEnumerable<Card> Card_List
+        private IEnumerable<Card?> _card_List; // DataList the DataGrid is working with
+        public IEnumerable<Card?> Card_List
         {
             get { return _card_List; }
             set
@@ -25,11 +25,20 @@ namespace MTG_Inventory.MVVM.ViewModel
 
         // Card Type List        
         public List<string> CardTypes { get; set; }
+        public Filter Filter 
+        { get => filter;
+            set 
+            {
+                filter = value;
+                PerformSelect();
+            }
+        }
 
         // Constructor
         public AllCardsViewModel()
-        {   
+        {
             CardTypes = DataModel.cardTypes;
+            Filter = AllCardsView.filter;
 
             // LoadSampleData();
             PerformLoad();
@@ -48,32 +57,35 @@ namespace MTG_Inventory.MVVM.ViewModel
         // Button Commands        
         // Button Select        
         public RelayCommand BTN_Select => new RelayCommand(PerformSelect);
-        private void PerformSelect(object commandParameter)
+        private void PerformSelect(object commandParameter = null)
         {
-            // Get all Filter Values
+            Card_List = null;
+            // Get all Filter Values            
 
-
-            var query = DataModel.cardList.Where(x => x.setCode == "LEA" &&
-                                             x.colors.Contains(  )
+            var query = DataModel.cardList.Where(x => x.types.Any(item => Filter.CardTypeFilterList.Contains(item.ToLower())) &&
+                                                      x.colors.Any(item => Filter.ColorFilterList.Contains(Convert.ToChar(item.ToUpper()))) &&
+                                                      x.name.Contains(Filter.TitleSearchText))
                                           .Select(x => x)
                                           .OrderBy(x => x.name);
 
             Card_List = query.ToList();
-        }
+        }        
 
         // Button Reset
         public RelayCommand BTN_Reset => new RelayCommand(PerformReset);
         private void PerformReset(object commandParameter)
         {
+            Card_List = null;
 
-            var query = DataModel.cardList.Where((x) => x.name != null)
-                                 .Select((x) => x);
+            var query = DataModel.cardList.Where(x => x.setCode == "LEB")
+                                          .Select(x => x)
+                                          .OrderBy(x => x.name);
 
             Card_List = query.ToList();
 
         }
 
-                    
+
 
 
         // DatePicker
@@ -88,6 +100,8 @@ namespace MTG_Inventory.MVVM.ViewModel
             }
         }
         private DateTime _selectedDateUntil = DateTime.Now;
+        private Filter filter;
+
         public DateTime SelectedDateUntil
         {
             get { return _selectedDateUntil; }

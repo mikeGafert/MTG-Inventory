@@ -76,8 +76,7 @@
                               Grid.Column="0"
                               Style="{StaticResource CardTypesTheme}" 
                               Checked="Color_Checkbox_Checked"
-                              Unchecked="Color_Checkbox_Unchecked"  
-                              RenderTransformOrigin="462545.335,6.736"/>
+                              Unchecked="Color_Checkbox_Unchecked"/>
                     <Image Source="/Images/14-146289_the-gathering-pro-tour-magic-points-mana-ravnica.png"
                            Grid.Row="0"
                            Grid.Column="1"
@@ -228,7 +227,7 @@
                               Style="{StaticResource CardTypesTheme}"  
                               Content="{Binding CardTypes[4]}"  
                               Checked="CardTypes_Checkbox_Checked"
-                              Unchecked="{Binding CardTypes_Checkbox_Unchecked}"/>
+                              Unchecked="CardTypes_Checkbox_Unchecked"/>
 
                     <CheckBox x:Name="CHB_CT_05"
                               Grid.Row="2"
@@ -294,13 +293,13 @@
                               Checked="CardTypes_Checkbox_Checked"
                               Unchecked="CardTypes_Checkbox_Unchecked"/>
 
-                    <CheckBox x:Name="CHB_CT_13"
+                    <!--<CheckBox x:Name="CHB_CT_13"
                               Grid.Row="6"
                               Grid.Column="1"
                               Style="{StaticResource CardTypesTheme}"
                               Content="{Binding CardTypes[13]}"  
                               Checked="CardTypes_Checkbox_Checked"
-                              Unchecked="CardTypes_Checkbox_Unchecked"/>
+                              Unchecked="CardTypes_Checkbox_Unchecked"/>-->
 
                     <!--<CheckBox x:Name="CHB_CT_14"
                               Grid.Row="7"
@@ -353,12 +352,12 @@
                             Command="{Binding BTN_Select}"/>
                 </StackPanel>
 
-                <Button Height="20"
+                <!--<Button Height="20"
                         Width="140"
                         Margin="5,5,5,0"                        
                         Style="{StaticResource ModernButtonTheme}"
                         Content="{Binding ButtonLoadText}"                    
-                        Command="{Binding BTN_LoadData}"/>
+                        Command="{Binding BTN_LoadData}"/>-->
 
                 <!--<DatePicker x:Name="FromDate" 
                             Height="25"

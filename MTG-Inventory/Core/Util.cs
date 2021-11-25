@@ -16,8 +16,7 @@ using MTG_Inventory.MVVM.Model;
 namespace MTG_Inventory.Core
 {
     internal class Util
-    {
-        
+    {      
 
         // Code from https://www.c-sharpcorner.com/article/csharp-convert-bytes-to-kb-mb-gb/
         public static class FileSizeFormatter
